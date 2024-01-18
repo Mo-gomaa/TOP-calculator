@@ -21,6 +21,8 @@
     );
     --keypad-numberBtns: linear-gradient(to bottom, #e6f6ff, #d8eeff);
     --border-color: #6396c5;
+    --toggle-bg: #a9dcfd;
+    --slider-bg: #d8eeff;
   }
 
   /* dark mode */
@@ -38,6 +40,8 @@
   --keypad-special-operationsBtns: linear-gradient(to right, #002235, #050505);
   --keypad-numberBtns: linear-gradient(to bottom, #002235, #050505);
   --border-color: #3d76ab;
+  --toggle-bg: #1b6a9c;
+  --slider-bg: #003661;
 
   /* 80%, 50%, 40% */
   * {
@@ -78,7 +82,8 @@ the toggle has two spans inside
   margin-left: 9.44rem;
   margin-bottom: 0rem;
   border-radius: 2.5rem;
-  background: #1b6a9c;
+  background: var(--toggle-bg);
+
   position: relative;
   /* in order to position the inner svgs */
 }
@@ -111,14 +116,15 @@ the toggle has two spans inside
   border-radius: 2.5rem;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  background: #003661;
+  background: var(--slider-bg);
 }
 input:checked + .slider {
-  background-color: #a9dcfd;
+  background-color: var(--toggle-bg);
   border-radius: 2.5rem;
 }
+
 input:checked + .slider:before {
-  background-color: #d8eeff;
+  background-color: var(--slider-bg);
 }
 
 input:checked + .slider:before {
