@@ -84,6 +84,8 @@ the toggle has two spans inside
 */
 
 .toggle-history__toggle {
+  display: inline-block;
+
   width: 7.625rem;
   height: 2.75rem;
   margin-top: 3.25rem;
@@ -91,15 +93,58 @@ the toggle has two spans inside
   margin-bottom: 0rem;
   border-radius: 2.5rem;
   background: var(--toggle);
-  border: none;
   position: relative;
   /* in order to position the inner svgs */
 }
 
+.toggle-history__toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 4.25rem;
+  height: 2.75rem;
+  left: 0;
+  bottom: 0;
+  border-radius: 2.5rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background: #003661;
+}
+input:checked + .slider {
+  background-color: #a9dcfd;
+  border-radius: 2.5rem;
+}
+input:checked + .slider:before {
+  background-color: #d8eeff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(3.38rem);
+  -ms-transform: translateX(3.38rem);
+  transform: translateX(3.38rem);
+}
 .toggle-history__toggle svg {
   position: absolute;
   width: 1.85856rem;
   height: 1.85856rem;
+  z-index: 1;
 }
 
 .toggle-history__toggle svg:first-child {
@@ -112,10 +157,8 @@ the toggle has two spans inside
 }
 
 .toggle-history__history {
-  margin-top: 3.96rem;
+  margin-top: 3.69rem;
   margin-left: 5.375rem;
-}
-.toggle-history__history svg {
   width: 1.875rem;
   height: 1.875rem;
 }
