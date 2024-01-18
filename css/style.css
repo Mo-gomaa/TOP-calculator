@@ -75,6 +75,13 @@
 .toggle-history * {
   display: inline;
 }
+/* 
+you need to divide the problem into a set of problems:
+you need to make a button that toggles between light and dark using css when clicked
+
+the toggle has two spans inside 
+
+*/
 
 .toggle-history__toggle {
   width: 7.625rem;
@@ -84,7 +91,26 @@
   margin-bottom: 0rem;
   border-radius: 2.5rem;
   background: var(--toggle);
+  border: none;
+  position: relative;
+  /* in order to position the inner svgs */
 }
+
+.toggle-history__toggle svg {
+  position: absolute;
+  width: 1.85856rem;
+  height: 1.85856rem;
+}
+
+.toggle-history__toggle svg:first-child {
+  top: 0.44rem;
+  left: 1.08rem;
+}
+.toggle-history__toggle svg:nth-child(2) {
+  top: 0.44rem;
+  left: 4.69rem;
+}
+
 .toggle-history__history {
   margin-top: 3.96rem;
   margin-left: 5.375rem;
@@ -93,9 +119,7 @@
   width: 1.875rem;
   height: 1.875rem;
 }
-/* toggle-history */
 
-/* display */
 .display {
   width: 22.1875rem;
   height: 6.5625rem;
@@ -158,7 +182,6 @@
   font-weight: 600;
   line-height: normal;
 }
-
 .keypad {
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -200,7 +223,6 @@
   border-radius: 2.5rem;
   background: var(--keypad-special-operationsBtns);
 
-  /* aa */
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
