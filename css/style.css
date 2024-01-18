@@ -1,0 +1,245 @@
+:root {
+  /* light mode */
+  .light-mode {
+    --color: #373737;
+    --color: #ffffff 30%;
+    --color: #373737-80%;
+    --color: #373737-50%;
+    --color: #373737-40%;
+    --color: #6396c5;
+    --color: #a9dcfd;
+    --color: #d8eeff;
+    --color: #e6f6ff 20%;
+    --bg-light-mode: linear-gradient(#fefefe, #f9f9f9, #fefefe, #e5e5e5);
+    --color: #ffffff 20%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  /* dark mode */
+
+  --color: #fbfbfb;
+  /* 30%*  */
+  --color: #050505;
+  /* 40% */
+  --color: #002235;
+  --color: #003661;
+  /* 20% */
+  --color: #050505;
+  --dark-toggle: #1b6a9c;
+  --calculator-bg: linear-gradient(
+    166deg,
+    #373737 0%,
+    #252628 22.9%,
+    #000309 100%
+  );
+  --light-toggle: #3d76ab;
+  --dark-keypad-bg: linear-gradient(to bottom left, #1b6a9c, #00123f);
+  /* 80%, 50%, 40% */
+  --color: #fbfbfb;
+  --calculator-width: 26.4375rem;
+  --calculator-height: 53.625rem;
+}
+.calculator {
+  width: var(--calculator-width);
+  height: var(--calculator-height);
+  border-radius: 2.5rem;
+  background: var(--calculator-bg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* toggle-history */
+.toggle-history {
+  width: 100%;
+}
+.toggle-history * {
+  display: inline;
+}
+
+.toggle-history__toggle {
+  width: 7.625rem;
+  height: 2.75rem;
+  margin-top: 3.25rem;
+  margin-left: 9.44rem;
+  margin-bottom: 0rem;
+  border-radius: 2.5rem;
+  background: #1b6a9c;
+}
+.toggle-history__history {
+  margin-top: 3.96rem;
+  margin-left: 5.375rem;
+}
+.toggle-history__history svg {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+/* toggle-history */
+
+/* display */
+.display {
+  width: 22.1875rem;
+  height: 6.5625rem;
+  margin-left: 2.12rem;
+  margin-top: 8.81rem;
+}
+
+.display__input-line {
+  display: flex;
+  width: 22.1875rem;
+  height: 2.1875rem;
+  flex-direction: column;
+  justify-content: center;
+
+  color: rgba(251, 251, 251, 0.5);
+  text-align: right;
+  font-family: Poppins;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.display__preview-line,
+.display__preivew-line * {
+  height: 4.375rem;
+}
+
+.display__preview-line--equal-btn {
+  display: inline-flex;
+  width: 4.375rem;
+  height: 4.375rem;
+  margin-left: 0;
+  flex-direction: column;
+  justify-content: center;
+
+  border: none;
+  color: #fbfbfb;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 1.625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background-color: transparent;
+}
+
+.display__preview-line--result {
+  display: inline-flex;
+  width: 10.3125rem;
+  height: 4.375rem;
+  margin-left: 7.24rem;
+  flex-direction: column;
+  justify-content: center;
+  color: #fbfbfb;
+  text-align: right;
+  font-family: Poppins;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 4fr;
+  width: 26.4375rem;
+  height: 33.5625rem;
+  margin-top: 1.4rem;
+  margin-bottom: -0.4rem;
+  padding: 2.12rem;
+  border-radius: 1.875rem;
+  background: var(--dark-keypad-bg);
+  box-shadow: 0px -5px 70px 0px rgba(0, 0, 0, 0.1);
+}
+
+.keypad button {
+  display: inline-flex;
+  width: 4.375rem;
+  height: 4.375rem;
+  flex-direction: column;
+  justify-content: center;
+  color: #fbfbfb;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 1.625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+}
+
+.keypad__special-operations {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 3;
+  width: 16.25rem;
+  height: 4.375rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 2.5rem;
+  background: linear-gradient(to right, #1b6a9c, #00123f);
+  /* aa */
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.keypad__numbers {
+  grid-row: 2 / span 4;
+  grid-column: 1 / span 3;
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1.25rem 1.56rem;
+}
+
+.keypad__numbers button,
+.keypad__special-operations button {
+  border-radius: 50%;
+}
+
+.keypad__special-operations button {
+  background-color: transparent;
+}
+.keypad__numbers button {
+  background-color: #00123f;
+}
+
+.keypad__operators {
+  grid-row: 1 / span 4;
+  grid-column: 3 span 1;
+  width: 4.375rem;
+  height: 26.875rem;
+  border-radius: 2.5rem;
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
+  display: inline-flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #002235, #00123f);
+}
+
+.keypad__operators button:first-child {
+  margin-top: 0;
+}
+
+.keypad__operators button {
+  margin-top: 1.56rem;
+  background: transparent;
+}
+
+.keypad__operators button:last-child {
+  background: #002235;
+  border-radius: 50%;
+}
+
+.border {
+  width: 10.9375rem;
+  height: 0.3125rem;
+  border-radius: 1.5625rem;
+  background: #3d76ab;
+  margin-bottom: 1.62rem;
+  margin-left: 7.75rem;
+  position: relative;
+  bottom: 1.62rem;
+}
