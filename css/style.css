@@ -19,14 +19,6 @@
   }
   /* dark mode */
 
-  --color: #fbfbfb;
-  /* 30%*  */
-  --color: #050505;
-  /* 40% */
-  --color: #002235;
-  --color: #003661;
-  /* 20% */
-  --color: #050505;
   --dark-toggle: #1b6a9c;
   --calculator-bg: linear-gradient(
     166deg,
@@ -35,7 +27,7 @@
     #000309 100%
   );
   --light-toggle: #3d76ab;
-  --dark-keypad-bg: linear-gradient(to bottom left, #1b6a9c, #00123f);
+  --dark-keypad-bg: linear-gradient(to bottom left, #002235, #050505);
   /* 80%, 50%, 40% */
   --color: #fbfbfb;
   --calculator-width: 26.4375rem;
@@ -181,7 +173,7 @@
   flex-direction: row;
   justify-content: space-between;
   border-radius: 2.5rem;
-  background: linear-gradient(to right, #1b6a9c, #00123f);
+  background: linear-gradient(to right, #002235, #050505);
   /* aa */
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
 }
@@ -204,7 +196,7 @@
   background-color: transparent;
 }
 .keypad__numbers button {
-  background-color: #00123f;
+  background: linear-gradient(to bottom, #002235, #050505);
 }
 
 .keypad__operators {
@@ -216,7 +208,7 @@
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
   display: inline-flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #002235, #00123f);
+  background: linear-gradient(to bottom, #002235, #050505);
 }
 
 .keypad__operators button:first-child {
