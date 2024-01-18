@@ -1,7 +1,29 @@
 :root {
+  --calculator-width: 26.4375rem;
+  --calculator-height: 53.625rem;
+
   /* light mode */
   .light-mode {
-    --color: #373737;
+    --color: #fbfbfb;
+    --toggle: #1b6a9c;
+    --calculator-bg: linear-gradient(
+      166deg,
+      #373737 0%,
+      #252628 22.9%,
+      #000309 100%
+    );
+    --light-toggle: #3d76ab;
+    --keypad-bg: linear-gradient(to bottom left, #002235, #050505);
+    --keypad-operatorsBtns: linear-gradient(to bottom, #002235, #050505);
+    --keypad-operatorBtns-lastChild: #002235;
+    --keypad-special-operationsBtns: linear-gradient(
+      to right,
+      #002235,
+      #050505
+    );
+    --keypad-numberBtns: linear-gradient(to bottom, #002235, #050505);
+
+    /* --color: #373737;
     --color: #ffffff 30%;
     --color: #373737-80%;
     --color: #373737-50%;
@@ -11,7 +33,7 @@
     --color: #d8eeff;
     --color: #e6f6ff 20%;
     --bg-light-mode: linear-gradient(#fefefe, #f9f9f9, #fefefe, #e5e5e5);
-    --color: #ffffff 20%;
+    --color: #ffffff 20%; */
   }
 
   * {
@@ -19,7 +41,8 @@
   }
   /* dark mode */
 
-  --dark-toggle: #1b6a9c;
+  --color: #fbfbfb;
+  --toggle: #1b6a9c;
   --calculator-bg: linear-gradient(
     166deg,
     #373737 0%,
@@ -27,11 +50,13 @@
     #000309 100%
   );
   --light-toggle: #3d76ab;
-  --dark-keypad-bg: linear-gradient(to bottom left, #002235, #050505);
+  --keypad-bg: linear-gradient(to bottom left, #002235, #050505);
+  --keypad-operatorsBtns: linear-gradient(to bottom, #002235, #050505);
+  --keypad-operatorBtns-lastChild: #002235;
+  --keypad-special-operationsBtns: linear-gradient(to right, #002235, #050505);
+  --keypad-numberBtns: linear-gradient(to bottom, #002235, #050505);
+
   /* 80%, 50%, 40% */
-  --color: #fbfbfb;
-  --calculator-width: 26.4375rem;
-  --calculator-height: 53.625rem;
 }
 .calculator {
   width: var(--calculator-width);
@@ -58,7 +83,7 @@
   margin-left: 9.44rem;
   margin-bottom: 0rem;
   border-radius: 2.5rem;
-  background: #1b6a9c;
+  background: var(--toggle);
 }
 .toggle-history__history {
   margin-top: 3.96rem;
@@ -108,7 +133,7 @@
   justify-content: center;
 
   border: none;
-  color: #fbfbfb;
+  color: var(--color);
   text-align: center;
   font-family: Poppins;
   font-size: 1.625rem;
@@ -125,7 +150,7 @@
   margin-left: 7.24rem;
   flex-direction: column;
   justify-content: center;
-  color: #fbfbfb;
+  color: var(--color);
   text-align: right;
   font-family: Poppins;
   font-size: 2.5rem;
@@ -144,7 +169,7 @@
   margin-bottom: -0.4rem;
   padding: 2.12rem;
   border-radius: 1.875rem;
-  background: var(--dark-keypad-bg);
+  background: var(--keypad-bg);
   box-shadow: 0px -5px 70px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -154,7 +179,7 @@
   height: 4.375rem;
   flex-direction: column;
   justify-content: center;
-  color: #fbfbfb;
+  color: var(--color);
   text-align: center;
   font-family: Poppins;
   font-size: 1.625rem;
@@ -173,7 +198,8 @@
   flex-direction: row;
   justify-content: space-between;
   border-radius: 2.5rem;
-  background: linear-gradient(to right, #002235, #050505);
+  background: var(--keypad-special-operationsBtns);
+
   /* aa */
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
 }
@@ -196,7 +222,7 @@
   background-color: transparent;
 }
 .keypad__numbers button {
-  background: linear-gradient(to bottom, #002235, #050505);
+  background: var(--keypad-numberBtns);
 }
 
 .keypad__operators {
@@ -208,7 +234,7 @@
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
   display: inline-flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #002235, #050505);
+  background: var(--keypad-operatorsBtns);
 }
 
 .keypad__operators button:first-child {
@@ -221,7 +247,7 @@
 }
 
 .keypad__operators button:last-child {
-  background: #002235;
+  background: var(--keypad-operatorsBtns-lastChild);
   border-radius: 50%;
 }
 
