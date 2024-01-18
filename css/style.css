@@ -4,59 +4,45 @@
 
   /* light mode */
   .light-mode {
-    --color: #fbfbfb;
-    --toggle: #1b6a9c;
+    --color: #373737;
     --calculator-bg: linear-gradient(
       166deg,
-      #373737 0%,
-      #252628 22.9%,
-      #000309 100%
+      #fefefe 0%,
+      #f9f9f9 22.9%,
+      #fefefe 100%
     );
-    --light-toggle: #3d76ab;
-    --keypad-bg: linear-gradient(to bottom left, #002235, #050505);
-    --keypad-operatorsBtns: linear-gradient(to bottom, #002235, #050505);
-    --keypad-operatorBtns-lastChild: #002235;
+    --keypad-bg: linear-gradient(to bottom left, #a9dcfd, #6396c5);
+    --keypad-operatorsBtns: linear-gradient(to bottom, #a9dcfd, #6396c5);
+    --keypad-operatorBtns-lastChild: #e5e5e5;
     --keypad-special-operationsBtns: linear-gradient(
       to right,
-      #002235,
-      #050505
+      #e6f6ff,
+      #d8eeff
     );
-    --keypad-numberBtns: linear-gradient(to bottom, #002235, #050505);
-
-    /* --color: #373737;
-    --color: #ffffff 30%;
-    --color: #373737-80%;
-    --color: #373737-50%;
-    --color: #373737-40%;
-    --color: #6396c5;
-    --color: #a9dcfd;
-    --color: #d8eeff;
-    --color: #e6f6ff 20%;
-    --bg-light-mode: linear-gradient(#fefefe, #f9f9f9, #fefefe, #e5e5e5);
-    --color: #ffffff 20%; */
+    --keypad-numberBtns: linear-gradient(to bottom, #e6f6ff, #d8eeff);
+    --border-color: #6396c5;
   }
 
-  * {
-    box-sizing: border-box;
-  }
   /* dark mode */
 
   --color: #fbfbfb;
-  --toggle: #1b6a9c;
   --calculator-bg: linear-gradient(
     166deg,
     #373737 0%,
     #252628 22.9%,
     #000309 100%
   );
-  --light-toggle: #3d76ab;
   --keypad-bg: linear-gradient(to bottom left, #002235, #050505);
   --keypad-operatorsBtns: linear-gradient(to bottom, #002235, #050505);
   --keypad-operatorBtns-lastChild: #002235;
   --keypad-special-operationsBtns: linear-gradient(to right, #002235, #050505);
   --keypad-numberBtns: linear-gradient(to bottom, #002235, #050505);
+  --border-color: #3d76ab;
 
   /* 80%, 50%, 40% */
+  * {
+    box-sizing: border-box;
+  }
 }
 .calculator {
   width: var(--calculator-width);
@@ -92,7 +78,7 @@ the toggle has two spans inside
   margin-left: 9.44rem;
   margin-bottom: 0rem;
   border-radius: 2.5rem;
-  background: var(--toggle);
+  background: #1b6a9c;
   position: relative;
   /* in order to position the inner svgs */
 }
@@ -320,7 +306,7 @@ input:checked + .slider:before {
   width: 10.9375rem;
   height: 0.3125rem;
   border-radius: 1.5625rem;
-  background: #3d76ab;
+  background: var(--border-color);
   margin-bottom: 1.62rem;
   margin-left: 7.75rem;
   position: relative;
