@@ -37,49 +37,18 @@ lightModeToggle.addEventListener("change", () => {
   }
 });
 
-/*
-The calculator has several functionalities:
-  -it takes the user input when they click on any of the numbers or operators and displays it as the user is clicking the operators or numbers buttons
-  -it displays the input in the .display__input-line
-  -when the user clicks on the equal sign in the operations section, the result of the expression in the .display__input-line is evaluated and 
-  displayed in the .display__preview-line
-  -whenever the user clicks on the AC button,the .displaye__input-line and .display__preview-line are emptied
-  -whenver the user clicks on the +/- button the result in the .display__preview-line is doubled but only once 
-*/
-
-const add = function (a, b) {
-  return a + b;
-};
-
-const subtract = function (a, b) {
-  return a - b;
-};
-
-const sum = function (array) {
-  return array.reduce((total, current) => total + current, 0);
-};
-
-const multiply = function (array) {
-  return array.reduce((product, current) => product * current);
-};
-
-const power = function (a, b) {
-  return Math.pow(a, b);
-};
-
-const factorial = function (n) {
-  if (n === 0) return 1;
-  const solutionToSubProblem = factorial(n - 1);
-  return solutionToSubProblem + n;
-};
-
-// The actual calculator functionality
-
+// The calculation unctionality
+let equalClicked = false;
 const input = document.querySelector(".display__input-line");
 const result = document.querySelector(".display__preview-line--result");
 
 const numbersBtns = document.querySelectorAll(".keypad__numbers button");
-const operatorsBtns = document.querySelectorAll(".keypad__operators button");
+const operatorsBtns = document.querySelectorAll(
+  ".keypad__operators button:not(:last-child)"
+);
+const specialOperationsBtns = document.querySelectorAll(
+  ".keypad__special-operations button"
+);
 
 const AC = document.querySelector(
   ".keypad__special-operations button:nth-child(1)"
@@ -108,5 +77,38 @@ const equalBtn = document.querySelector(
 );
 // when the user clicks any of the numbers or operators, the clicked button content is concatenated to the input expression
 // and if the user clicks on any of the operators, a space before and after the operators are added aesthsitics
-// if the user clicks on the equal button, the program searches for  × or ÷ and then grabs the term before and after the operator
-// and evaluates the term and returs it then the program evaluates
+// if the user clicks on the equal button, the program takes the expression and replaces the ÷ with / and the × with *
+// the program calculates the expression and assign the result to output and then result.textContent = output
+
+numbersBtns.forEach((El) => {
+  El.addEventListener("click", () => {
+    input.textContent += El.textContent;
+  });
+});
+
+operatorsBtns.forEach((El) => {
+  El.addEventListener("click", () => {
+    input.textContent += ` ${El.textContent} `;
+  });
+});
+
+specialOperationsBtns.forEach((El) => {
+  if (equalClicked == true) {
+    El.addEventListener("click", function () {
+      this.disabled = true;
+    });
+  }
+});
+AC.addEventListener("click", () => (input.textContent = ""));
+plusInMinus.addEventListener("click", () => (result.textContent *= 2));
+perCent.addEventListener("click", () => (result.textContent /= 100));
+equalBtn.addEventListener("click", () => {
+  equalClicked = true;
+  let expression = input.textContent.replace(/÷/g, "/").replace(/×/g, "*");
+  console.log(expression);
+  result.textContent = evaluateExpression(expression);
+});
+
+function evaluateExpression(expression) {
+  return new Function("return " + expression)();
+}
