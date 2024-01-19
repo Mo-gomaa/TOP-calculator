@@ -100,8 +100,11 @@ AC.addEventListener("click", () => {
   clearInput();
 });
 plusInMinus.addEventListener("click", () => {
-  result.textContent *= 2;
-  plusInMinus.disabled = true;
+  if (result.textContent.startsWith("-")) {
+    return;
+  } else {
+    result.textContent = "-" + result.textContent;
+  }
 });
 perCent.addEventListener("click", () => {
   result.textContent /= 100;
@@ -180,20 +183,29 @@ function handleKeyboardEvent(key) {
       input.textContent += ` ${multiplicationBtn.textContent} `;
     }
   } else if (key === "Backspace") {
-    input.textContent = input.textContent.slice(
+    input.textContent = input.textContent.substring(
       0,
-      input.textContent.length - 2
+      input.textContent.length - 1
     );
   } else if (key === "Enter" || key === "=") {
     calculate();
   } else if (key === "Delete") {
     clearInput();
+  } else if (key === "F9") {
+    if (result.textContent === "0") {
+      return;
+    } else {
+      if (result.textContent.startsWith("-")) {
+        result.textContent = result.textContent.replace("-", "");
+      } else {
+        result.textContent = "-" + result.textContent;
+      }
+    }
   }
 }
 
 /*
 The remaining funcionalities are:
   -moving 
-  -keypad
   -history
  */
