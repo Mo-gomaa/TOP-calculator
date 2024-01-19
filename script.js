@@ -77,7 +77,6 @@ const additionBtn = document.querySelector(
 const equalBtn = document.querySelector(
   ".keypad__operators button:nth-child(5)"
 );
-let equalEvaluated;
 function evaluateExpression(expression) {
   return new Function("return " + expression)();
 }
@@ -91,10 +90,6 @@ function calculate() {
 
 function clearInput() {
   input.textContent = "";
-}
-
-function clearOutput() {
-  result.textContent = "";
 }
 
 numbersBtns.forEach((El) => {
@@ -120,7 +115,7 @@ point.addEventListener("click", () => {
     input.textContent += "0.";
   } else {
     for (term in input.textContent.split(" ")) {
-      if (term.includes(".")) {
+      if (term[input.textContent.split("").length - 1].includes(".")) {
         return;
       } else {
         input.textContent += ".";
@@ -139,3 +134,66 @@ operatorsBtns.forEach((El) => {
     }
   });
 });
+
+window.addEventListener("keydown", (e) => {
+  handleKeyboardEvent(e.key);
+});
+
+function handleKeyboardEvent(key) {
+  if (key >= 0 && key <= 9) {
+    if (input.textContent === "") {
+      input.textContent += `${key}`;
+    } else {
+      input.textContent += `${key}`;
+    }
+  } else if (key === ".") {
+    if (input.textContent === "") {
+      input.textContent += "0.";
+    } else {
+      for (term in input.textContent.split(" ")) {
+        if (term[input.textContent.split("").length - 1].includes(".")) {
+          return;
+        } else {
+          input.textContent += ".";
+        }
+      }
+    }
+  } else if (key === "+" || key === "-") {
+    if (input.textContent === "") {
+      input.textContent = result.textContent;
+      input.textContent += ` ${key} `;
+    } else {
+      input.textContent += ` ${key} `;
+    }
+  } else if (key === "/") {
+    if (input.textContent === "") {
+      input.textContent = result.textContent;
+      input.textContent += ` ${divisionBtn.textContent} `;
+    } else {
+      input.textContent += ` ${divisionBtn.textContent} `;
+    }
+  } else if (key === "*") {
+    if (input.textContent === "") {
+      input.textContent = result.textContent;
+      input.textContent += ` ${multiplicationBtn.textContent} `;
+    } else {
+      input.textContent += ` ${multiplicationBtn.textContent} `;
+    }
+  } else if (key === "Backspace") {
+    input.textContent = input.textContent.slice(
+      0,
+      input.textContent.length - 2
+    );
+  } else if (key === "Enter" || key === "=") {
+    calculate();
+  } else if (key === "Delete") {
+    clearInput();
+  }
+}
+
+/*
+The remaining funcionalities are:
+  -moving 
+  -keypad
+  -history
+ */
