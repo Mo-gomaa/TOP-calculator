@@ -23,6 +23,7 @@
     --border-color: #6396c5;
     --toggle-bg: #a9dcfd;
     --slider-bg: #d8eeff;
+    --input-color: rgba(151, 151, 151, 0.5);
   }
 
   /* dark mode */
@@ -42,6 +43,7 @@
   --border-color: #3d76ab;
   --toggle-bg: #1b6a9c;
   --slider-bg: #003661;
+  --input-color: rgba(251, 251, 251, 0.5);
 
   /* 80%, 50%, 40% */
   * {
@@ -169,7 +171,7 @@ input:checked + .slider:before {
   flex-direction: column;
   justify-content: center;
 
-  color: rgba(251, 251, 251, 0.5);
+  color: var(--input-color);
   text-align: right;
   font-family: Poppins;
   font-size: 1.375rem;
