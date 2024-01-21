@@ -118,7 +118,11 @@ point.addEventListener("click", () => {
     input.textContent += "0.";
   } else {
     for (term in input.textContent.split(" ")) {
-      if (term[input.textContent.split("").length - 1].includes(".")) {
+      if (
+        input.textContent
+          .split(" ")
+          [input.textContent.split(" ").length - 1].includes(".")
+      ) {
         return;
       } else {
         input.textContent += ".";
@@ -154,7 +158,11 @@ function handleKeyboardEvent(key) {
       input.textContent += "0.";
     } else {
       for (term in input.textContent.split(" ")) {
-        if (term[input.textContent.split("").length - 1].includes(".")) {
+        if (
+          input.textContent
+            .split(" ")
+            [input.textContent.split(" ").length - 1].includes(".")
+        ) {
           return;
         } else {
           input.textContent += ".";
