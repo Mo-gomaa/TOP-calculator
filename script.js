@@ -37,7 +37,7 @@ lightModeToggle.addEventListener("change", () => {
   }
 });
 
-// The calculation unctionality
+// The calculation functionality
 const input = document.querySelector(".display__input-line");
 const result = document.querySelector(".display__preview-line--result");
 
@@ -191,10 +191,22 @@ function handleKeyboardEvent(key) {
       input.textContent += ` ${multiplicationBtn.textContent} `;
     }
   } else if (key === "Backspace") {
-    input.textContent = input.textContent.substring(
-      0,
-      input.textContent.length - 1
-    );
+    if (
+      input.textContent.split(" ")[input.textContent.split(" ").length - 1]
+        .length == 3
+    ) {
+      for (let i = 0; i < 3; i++) {
+        input.textContent = input.textContent.substring(
+          0,
+          input.textContent.length - 1
+        );
+      }
+    } else {
+      input.textContent = input.textContent.substring(
+        0,
+        input.textContent.length - 1
+      );
+    }
   } else if (key === "Enter" || key === "=") {
     calculate();
   } else if (key === "Delete") {
